@@ -21,13 +21,14 @@ def translate_clipboard_text():
         # Copy translated text back to clipboard
         pyperclip.copy(translated)
         print(f"Translated Text: {translated}")
+
+        # Simulate Ctrl+V to paste the translated text
+        pyautogui.hotkey('ctrl', 'v')
     else:
         print("No text was copied to the clipboard!")
 
 # Set up the hotkey (Ctrl+Insert)
 keyboard.add_hotkey('ctrl+insert', translate_clipboard_text)
 
-print("Press Ctrl+Insert to translate selected text...")
-
-# The program will keep running, waiting for hotkeys, until you manually stop it (Ctrl+C in terminal).
-keyboard.wait()
+print("Press Ctrl+Insert to translate selected text and paste it...")
+keyboard.wait()  # Keeps the program running indefinitely
